@@ -1,7 +1,7 @@
 import React from 'react'
 import './TimeList.css'
 
-function TimeList(props) {
+function TimeList(props, clocks, setClocks) {
   return (
     <ul>
       {props.children}

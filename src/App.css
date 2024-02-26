@@ -4,10 +4,6 @@
     height: fit-content;
     display: flex;
     padding: 15px;
-    border-radius: 48px;
-    background: linear-gradient(145deg, #112e43, #0e2739);
-    box-shadow:  29px 29px 58px #0d2434,
-             -29px -29px 58px #13324a;
     color: #ffffff;
 }
 
@@ -22,18 +18,19 @@
     padding: 20px;
     margin: 30px;
     float: left;
+    transition: 0.3s;
 }
 
 .search-box {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .button-box {
     width: 90%;
-    justify-self: flex-start;
+    justify-self: end;
 }
 
 .clock-search {
@@ -43,6 +40,9 @@
 }
 
 .clock-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
 }
 

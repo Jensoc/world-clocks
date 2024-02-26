@@ -12,11 +12,11 @@
     background: linear-gradient(145deg, #112e43, #0e2739);
     box-shadow:  5px 5px 10px #081620,
                  -5px -5px 10px #18405e;
-    transition: 1s;
+    transition: 0.3s;
 }
 
 .create-button:active {
-    background: #102b3f;
-    box-shadow: inset 5px 5px 10px #081620,
-                inset -5px -5px 10px #18405e;
+    background: #102B3F;
+    box-shadow: inset 5px 5px 10px #0a1c28,
+                inset -5px -5px 10px #163a56;
 }

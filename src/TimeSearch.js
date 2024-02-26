@@ -1,9 +1,16 @@
 import React from 'react'
 import './TimeSearch.css'
 
-function TimeSearch() {
+function TimeSearch({searchValue, setSearchValue}) {
+
   return (
-    <input placeholder="New York" />
+    <input
+      placeholder="New York..."
+      value= {searchValue}
+      onChange={(e)=> {
+        setSearchValue(e.target.value);
+      }}
+    />
   )
 }
 

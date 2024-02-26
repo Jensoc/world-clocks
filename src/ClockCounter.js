@@ -4,7 +4,8 @@ import './ClockCounter.css';
 function ClockCounter({total}) {
   return (
     <h1>
-        {total} World Clocks!
+      <span>{total} </span>
+      World Clocks!
     </h1>
   )
 }
