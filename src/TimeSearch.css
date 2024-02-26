@@ -1,0 +1,14 @@
+input {
+    height: 50px;
+    color: inherit;
+    border: none;
+    padding-left: 30px;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    border-radius: 118px;
+    background: #102b3f;
+    box-shadow: inset 9px 9px 18px #0c202f,
+            inset -9px -9px 18px #14364f;
+    font-size: 20px;
+}
