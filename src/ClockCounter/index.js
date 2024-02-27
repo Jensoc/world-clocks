@@ -1,7 +1,10 @@
 import React from 'react';
-import './ClockCounter.css';
+import { AppContext } from '../AppContext';
+import './ClockCounter.css'
 
-function ClockCounter({total}) {
+function ClockCounter() {
+  const {clocksCount: total} = React.useContext(AppContext);
+
   return (
     <h1>
       <span>{total} </span> World Clocks

@@ -1,11 +1,14 @@
 import React from 'react'
 import './TimeSearch.css'
+import { AppContext } from '../AppContext';
 
-function TimeSearch({searchValue, setSearchValue}) {
+function TimeSearch() {
+
+  const {searchValue, setSearchValue} = React.useContext(AppContext);
 
   return (
     <input
-      placeholder="New York..."
+      placeholder="Search your clock"
       value= {searchValue}
       onChange={(e)=> {
         setSearchValue(e.target.value);

@@ -2,7 +2,7 @@
 
 input {
     width: 100%;
-    height: 70px;
+    height: 50px;
     color: inherit;
     margin-bottom: 50px;
     padding: 0;
@@ -13,7 +13,7 @@ input {
     background: #102b3f;
     box-shadow: inset 9px 9px 18px #0c202f,
             inset -9px -9px 18px #14364f;
-    font-size: 30px;
+    font-size: 20px;
     transition: .3s ease;
     border: 5px solid transparent;
     text-align: center;
