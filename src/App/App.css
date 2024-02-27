@@ -1,6 +1,6 @@
 
 .main-box {
-    width: 1000px;
+    width: 1900px;
     height: fit-content;
     display: flex;
     padding: 15px;
@@ -10,7 +10,7 @@
 .main-box section {
     width: 50%;
     height: auto;
-    min-height: 300px;
+    min-height: 500px;
     border-radius: 48px;
     background: #102b3f;
     box-shadow:  7px 7px 18px #091823,

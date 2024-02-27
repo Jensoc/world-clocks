@@ -1,7 +1,8 @@
 
 .clock-item {
     width: 100%;
-    margin: 15px 0px 15px 0px;
+    height: fit-content;
+    margin: 5px 0px 5px 0px;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -9,26 +10,32 @@
     /* background: #102b3f;
     box-shadow:  7px 7px 18px #0d2435,
                  -7px -7px 18px #133249; */
-    font-size: 24px;
+    font-size: 30px;
 }
 
-.clock p {
-    width: 200px;
+.clock-item p {
+    width: 125px;
 }
 
 .delete-clock {
     cursor: pointer;
     transition: 0.2s;
     color: #ffffff;
+    scale: 110%;
 }
 
 .delete-clock:hover {
-    scale: 125%;
+    scale: 130%;
     color: #A06CD5;
 }
 
 .status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: transform 0.5s ease;
+    scale: 150%;
+    color: blue;
 }
 
 .status:hover {

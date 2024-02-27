@@ -2,8 +2,9 @@ import React from 'react'
 import './CreateButton.css'
 
 function CreateButton() {
+
   return (
-    <button className='create-button'>New Clock</button>
+    <button className={`create-button`}>Add new clock</button>
   )
 }
 
