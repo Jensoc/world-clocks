@@ -7,6 +7,7 @@ import { ClockCounter } from '../ClockCounter';
 import { Loader } from '../Loader';
 import { FaMoon } from "react-icons/fa";
 import { FaSun } from "react-icons/fa";
+import { Modal } from '../Modal';
 import { AppContext } from '../AppContext';
 
 
@@ -17,7 +18,7 @@ function AppUI() {
     clocks,
     loading,
     deleteClock,
-    searchedClocks,
+    searchedClocks
   } = React.useContext(AppContext);
 
     return (
@@ -29,6 +30,8 @@ function AppUI() {
               <ClockCounter/>
               <TimeSearch/>
               <CreateButton/>
+
+              <Modal/>
 
             </div>
           </section>

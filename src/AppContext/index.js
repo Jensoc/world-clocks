@@ -12,7 +12,8 @@ function AppProvider({children}) {
         error,
       } = useLocalStorage("clocks_v1", []);
       const [searchValue, setSearchValue] = React.useState("");
-    
+      const [openModal, setOpenModal] = React.useState(true);
+
       const clocksCount = clocks.length;
     
       const searchedClocks = clocks.filter(
@@ -42,6 +43,8 @@ function AppProvider({children}) {
             searchValue,
             setSearchValue,
             searchedClocks,
+            setOpenModal,
+            openModal
         }}>
             {children}
         </AppContext.Provider>
