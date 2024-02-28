@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import {AppContext} from '../AppContext'
+import './Modal.css'
 
 function Modal({children}) {
 
@@ -8,13 +9,27 @@ function Modal({children}) {
         openModal,
         setOpenModal
     } = React.useContext(AppContext);
+    
+    if (openModal === true) {
+        return ReactDOM.createPortal(
+            <div className="modal-container">
 
-    return ReactDOM.createPortal(
-        <div className="modal-container">
-            {children}
-        </div>,
-        document.getElementById("modal")
-    );
+                <div className="modal">
+
+                    <button
+                        className="modal-button"                     
+                        onClick={() => {setOpenModal(!openModal); console.log(openModal)}}
+
+                    >✖</button>
+
+                    <h1>Search your location</h1>
+                    
+                {children}
+                </div>
+            </div>,
+            document.getElementById("modal")
+        )
+    }
 }
  
 export { Modal };

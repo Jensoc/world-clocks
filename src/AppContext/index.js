@@ -12,7 +12,7 @@ function AppProvider({children}) {
         error,
       } = useLocalStorage("clocks_v1", []);
       const [searchValue, setSearchValue] = React.useState("");
-      const [openModal, setOpenModal] = React.useState(true);
+      const [openModal, setOpenModal] = React.useState(false);
 
       const clocksCount = clocks.length;
     

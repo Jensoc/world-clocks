@@ -12,7 +12,6 @@
     background: linear-gradient(145deg, #112e43, #0e2739);
     box-shadow:  5px 5px 10px #081620,
                  -5px -5px 10px #18405e;
-    transition: 0.3s;
 }
 
 .create-button:active {

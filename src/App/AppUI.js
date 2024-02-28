@@ -9,6 +9,7 @@ import { FaMoon } from "react-icons/fa";
 import { FaSun } from "react-icons/fa";
 import { Modal } from '../Modal';
 import { AppContext } from '../AppContext';
+import { Dropdown } from '../Dropdown';
 
 
 function AppUI() {
@@ -18,7 +19,7 @@ function AppUI() {
     clocks,
     loading,
     deleteClock,
-    searchedClocks
+    searchedClocks,
   } = React.useContext(AppContext);
 
     return (
@@ -26,36 +27,35 @@ function AppUI() {
           <section className='search-box'>
             <div className='clock-search'>
 
-              
               <ClockCounter/>
               <TimeSearch/>
               <CreateButton/>
 
-              <Modal/>
+              <Modal>
+                <Dropdown/>
+              </Modal>
 
             </div>
           </section>
     
           <section className='clock-box'>
-    
                 <TimeList>
                   {loading && <Loader/>}
                   {error && <li className='no-clocks'>Error!</li>}
 
                   {(clocks.length === 0)
-                      ? ((!loading && !error) && <li className='no-clocks'>Add a new clock!</li>)
-                      
-                      : searchedClocks.map((clock) => (
-                          <TimeItem
-                            onDelete = {() => deleteClock(clock.text)}
-                            key = {clock.text}
-                            text = {clock.text}
-                            day = {(clock.day) ? <FaSun color='#FFC73A'/> : <FaMoon color='#674689'/>}
-                          />
-                        ))
+                    ? ((!loading && !error) && <li className='no-clocks'>Add a new clock!</li>)
+                    
+                    : searchedClocks.map((clock) => (
+                        <TimeItem
+                          onDelete = {() => deleteClock(clock.text)}
+                          key = {clock.text}
+                          text = {clock.text}
+                          day = {(clock.day) ? <FaSun color='#FFC73A'/> : <FaMoon color='#674689'/>}
+                        />
+                    ))
                   }
                 </TimeList>
-    
           </section>
         </main>
       );

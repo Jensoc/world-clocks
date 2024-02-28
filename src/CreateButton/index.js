@@ -12,7 +12,7 @@ function CreateButton() {
   return (
     <button
       className={`create-button`}
-      onClick={setOpenModal(!openModal)}
+      onClick={() => {setOpenModal(!openModal)}}
     >Add new clock</button>
   )
 }
