@@ -13,7 +13,6 @@ import { Dropdown } from '../Dropdown';
 import { DropdownContent } from '../DropdownContent';
 import { ModalButton } from '../ModalButton';
 
-
 function AppUI() {
 
   const {
