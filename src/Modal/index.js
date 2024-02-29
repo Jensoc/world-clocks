@@ -15,14 +15,16 @@ function Modal({children}) {
             <div className="modal-container">
 
                 <div className="modal">
+                    <div className="header">
+                        <h1>Search your location</h1>
+                        <button
+                            className="modal-button"                  
+                            onClick={() => {setOpenModal(!openModal)}}
 
-                    <button
-                        className="modal-button"                     
-                        onClick={() => {setOpenModal(!openModal); console.log(openModal)}}
+                        >✖</button>
 
-                    >✖</button>
+                    </div>
 
-                    <h1>Search your location</h1>
                     
                 {children}
                 </div>

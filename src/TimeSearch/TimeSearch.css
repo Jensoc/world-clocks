@@ -10,9 +10,9 @@ input {
     cursor: pointer;
     outline: inherit;
     border-radius: 118px;
-    background: #102b3f;
-    box-shadow: inset 9px 9px 18px #0c202f,
-            inset -9px -9px 18px #14364f;
+    background: #102B3F;
+    box-shadow: inset 7px 7px 14px #091823,
+                inset -7px -7px 14px #173e5b;
     font-size: 20px;
     transition: .3s ease;
     border: 5px solid transparent;

@@ -5,6 +5,8 @@ const AppContext = React.createContext();
 
 function AppProvider({children}) {
 
+    const [dropdown, setDropdown] = React.useState(false);
+
     const {
         item: clocks,
         saveToStorage,
@@ -44,7 +46,9 @@ function AppProvider({children}) {
             setSearchValue,
             searchedClocks,
             setOpenModal,
-            openModal
+            openModal,
+            dropdown,
+            setDropdown
         }}>
             {children}
         </AppContext.Provider>

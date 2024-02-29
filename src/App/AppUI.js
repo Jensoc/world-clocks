@@ -10,6 +10,8 @@ import { FaSun } from "react-icons/fa";
 import { Modal } from '../Modal';
 import { AppContext } from '../AppContext';
 import { Dropdown } from '../Dropdown';
+import { DropdownContent } from '../DropdownContent';
+import { ModalButton } from '../ModalButton';
 
 
 function AppUI() {
@@ -20,6 +22,7 @@ function AppUI() {
     loading,
     deleteClock,
     searchedClocks,
+    dropdown,
   } = React.useContext(AppContext);
 
     return (
@@ -33,6 +36,8 @@ function AppUI() {
 
               <Modal>
                 <Dropdown/>
+                {dropdown && <DropdownContent/>}
+                <ModalButton/>
               </Modal>
 
             </div>
