@@ -6,13 +6,12 @@ function CreateButton() {
 
   const {
     setOpenModal,
-    openModal
   } = React.useContext(AppContext);
 
   return (
     <button
       className={`create-button`}
-      onClick={() => {setOpenModal(!openModal)}}
+      onClick={() => {setOpenModal(true)}}
     >Create a clock</button>
   )
 }

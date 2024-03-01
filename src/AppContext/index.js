@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocalStorage } from "./useLocalStorage";
-import { useFetchDefaultClocks } from "./useFetchDefaultClocks";
+// import { useFetchDefaultClocks } from "./useFetchDefaultClocks";
 
 const AppContext = React.createContext();
 
@@ -14,7 +14,7 @@ function AppProvider({children}) {
         saveToStorage,
         loading,
         error,
-      } = useLocalStorage("clocks_v1", useFetchDefaultClocks() && []);
+      } = useLocalStorage("clocks_v1", []);
 
       const [searchValue, setSearchValue] = React.useState("");
       const [openModal, setOpenModal] = React.useState(false);
@@ -23,23 +23,18 @@ function AppProvider({children}) {
 
       const searchedClocks = clocks && clocks.filter(
         (item) => {
-          
-          const clockText = item.city.toLocaleLowerCase();
-          const searchText = searchValue.toLocaleLowerCase();
-          return(clockText.includes(searchText));
+          const clockText = item?.city?.toLocaleLowerCase();
+          const searchText = searchValue?.toLocaleLowerCase();
+          return(clockText?.includes(searchText));
         }     
       );
 
-      // const searchedClocks = [];
-      // for (const item of clocks) {
-      //   const clockText = item.text.toLocaleLowerCase();
-      //   const searchText = searchValue.toLocaleLowerCase();
-
-      //   if (clockText.includes(searchText)) {
-      //     searchedClocks.push(item);
-      //   }
-      // }
-    
+      const addClock = (time, city) => {
+          const newClocks = [...clocks];
+          newClocks.push({time, city});
+          saveToStorage(newClocks);
+          console.log(`Al recibir: "${time}", "${city}"`);
+      }
     
       const deleteClock = (text) => {
         const newClocks = [...clocks];
@@ -63,7 +58,8 @@ function AppProvider({children}) {
             setOpenModal,
             openModal,
             dropdown,
-            setDropdown
+            setDropdown,
+            addClock
         }}>
             {children}
         </AppContext.Provider>

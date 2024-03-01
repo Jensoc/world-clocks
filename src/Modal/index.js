@@ -5,10 +5,8 @@ import './Modal.css'
 
 function Modal({children}) {
 
-    const {
-        openModal,
-        setOpenModal
-    } = React.useContext(AppContext);
+    const {openModal, setOpenModal} = React.useContext(AppContext);
+    const {setDropdown} = React.useContext(AppContext);
     
     if (openModal === true) {
         return ReactDOM.createPortal(
@@ -19,7 +17,7 @@ function Modal({children}) {
                         <h1>Search your location</h1>
                         <button
                             className="modal-button"                  
-                            onClick={() => {setOpenModal(!openModal)}}
+                            onClick={() => {setOpenModal(false); setDropdown(false)}}
 
                         >✖</button>
 

@@ -3,6 +3,8 @@ import './DropdownContent.css'
 import { useFetchClockList } from './useFetchClockList.js';
 import { DropdownItem } from '../DropdownItem/index.js';
 
+
+
 // 1. Haz que el boton add clock funcione
 // 1.1 haz que funcione el search - FUNCIONA.
 // 
@@ -16,16 +18,18 @@ function DropdownContent() {
   const [searchValue, setSearchValue] = useState("");
   const [searchedClocks, setSearchedClocks] = useState([]); 
 
-  useEffect(() => {
-    if (countryList) {
-      const filteredClocks = countryList.filter((item) => {
-        const clockCountry = item?.country.toLowerCase();
-        const searchedText = searchValue?.toLowerCase();
-        return clockCountry.includes(searchedText);
-      });
-      setSearchedClocks(filteredClocks);
-    }
-  }, [countryList, searchValue]);
+    useEffect(() => {
+      setTimeout(() => {
+        if (countryList) {
+          const filteredClocks = countryList.filter((item) => {
+            const clockCountry = item?.country.toLocaleLowerCase();
+            const searchedText = searchValue?.toLocaleLowerCase();
+            return clockCountry.includes(searchedText);
+          });
+          setSearchedClocks(filteredClocks);
+        }
+      }, 500);
+    }, [countryList]);
 
   return (
     <div class="content">

@@ -5,7 +5,7 @@ import { AppContext } from "../AppContext";
 
 function Dropdown() {
 
-    const {dropdown, setDropdown} = React.useContext(AppContext);
+  const {dropdown, setDropdown} = React.useContext(AppContext);
 
   return (
     <div className="dropdown-box">
