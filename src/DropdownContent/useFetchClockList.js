@@ -12,16 +12,27 @@ function useFetchClockList() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    for (let i in data) {
-        if  (!(i.includes("Africa") || i.includes("America") || i.includes("Antartica") || i.includes("Asia") || i.includes("Atlantic") || i.includes("Australia") || i.includes("Europe") || i.includes("Pacific") || i.includes("Indian"))) {
-            data.pop(i);
-
-            
-        }
+    function dataToObject (arrA) {
+        const arrB = [];
+        arrA.forEach((country, index) => {
+          arrB.push({
+            id: index + 1,
+            country: country,
+          });
+        });
+        return arrB;
     }
 
+    if (data) {
+        var newData = dataToObject(data);
+    }
 
-    return (data);
+    return(
+        newData?.filter((i)=>(
+            i.country.includes("Africa") || i.country.includes("America") || i.country.includes("Antartica") || i.country.includes("Asia") || i.country.includes("Atlantic") || i.country.includes("Australia") || i.country.includes("Europe") || i.country.includes("Pacific") || i.country.includes("Indian")
+        ))
+    )
+
 }
 
 export {useFetchClockList};

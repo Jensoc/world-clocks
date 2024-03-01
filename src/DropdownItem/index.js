@@ -4,6 +4,8 @@ import './DropdownItem.css'
 
 function DropdownItem({item}) {
 
+  console.log("dropdownitem info:", item)
+
     let url = "http://worldtimeapi.org/api/timezone/" + item;
     const {time, city, fetchLoading} = useFetch(url);
     

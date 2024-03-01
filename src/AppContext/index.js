@@ -16,8 +16,6 @@ function AppProvider({children}) {
         error,
       } = useLocalStorage("clocks_v1", useFetchDefaultClocks() && []);
 
-      console.log(useFetchDefaultClocks());
-
       const [searchValue, setSearchValue] = React.useState("");
       const [openModal, setOpenModal] = React.useState(false);
 
