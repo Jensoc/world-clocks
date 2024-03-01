@@ -1,26 +1,48 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './DropdownContent.css'
-import { useFetch } from './useFetch';
+import { useFetchClockList } from './useFetchClockList.js';
+import { DropdownItem } from '../DropdownItem/index.js';
+
+// 1. Haz que el boton add clock funcione
+// 1.1 haz que funcione el search
+// 
+// 2 dale estilos en la dropdown-list
+// 3. Tienes que hacer la actualizacion de los componentes cada 60 segs
+// 4. Averigua como imprimir todas las timezones - LISTO 
 
 function DropdownContent() {
 
-  const {data, loading} = useFetch("http://worldtimeapi.org/api/timezone/America/Argentina/Buenos_Aires");
-  
-  const time = data?.datetime.substring(11,19);
-  const zone = data?.timezone.split("/");
-  const city = zone?.[2].replace("_", " ");
-  const country = zone?.[1];
+  const [searchValue, setSearchValue] = useState("");
+  const countryList = useFetchClockList();
 
+  console.log(countryList);
+  console.log(countryList?.sort());
+
+  if (countryList) {
+    const searchedClocks = countryList.filter(
+      (item) => (
+        item?.country?.includes(searchValue)
+      )
+    );
+  }
+
+  console.log(searchValue)
+
+  console.log(countryList);
 
   return (
     <div class="content">
         <div class="content-input-box">
-            <input type="text" id="dropdown-options" placeholder="Search"></input>
+            <input type="text" id="dropdown-options" placeholder="Search" onChange={(e)=> {setSearchValue(e.target.value);}}>
+          </input>
         </div>
 
         <ul className="dropdown-list">
-          {loading && <p>Loading!</p>}
-          <li>{!loading && time} {!loading && city}, {!loading && country}</li>
+          {countryList && countryList.map((item)=>(
+            <DropdownItem 
+              item = {item}
+            />
+          ))}
         </ul>
     </div>
   )

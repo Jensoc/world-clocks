@@ -1,30 +1,47 @@
 import React from "react";
 import { useLocalStorage } from "./useLocalStorage";
+import { useFetchDefaultClocks } from "./useFetchDefaultClocks";
 
 const AppContext = React.createContext();
 
-function AppProvider({children}) {
 
-    const [dropdown, setDropdown] = React.useState(false);
+function AppProvider({children}) {
+  
+  const [dropdown, setDropdown] = React.useState(false);
 
     const {
         item: clocks,
         saveToStorage,
         loading,
         error,
-      } = useLocalStorage("clocks_v1", []);
+      } = useLocalStorage("clocks_v1", useFetchDefaultClocks() && []);
+
+      console.log(useFetchDefaultClocks());
+
       const [searchValue, setSearchValue] = React.useState("");
       const [openModal, setOpenModal] = React.useState(false);
 
       const clocksCount = clocks.length;
-    
-      const searchedClocks = clocks.filter(
-        (clock) => {
-          const clockText = clock.text.toLocaleLowerCase();
+
+      const searchedClocks = clocks && clocks.filter(
+        (item) => {
+          
+          const clockText = item.city.toLocaleLowerCase();
           const searchText = searchValue.toLocaleLowerCase();
           return(clockText.includes(searchText));
         }     
       );
+
+      // const searchedClocks = [];
+      // for (const item of clocks) {
+      //   const clockText = item.text.toLocaleLowerCase();
+      //   const searchText = searchValue.toLocaleLowerCase();
+
+      //   if (clockText.includes(searchText)) {
+      //     searchedClocks.push(item);
+      //   }
+      // }
+    
     
       const deleteClock = (text) => {
         const newClocks = [...clocks];

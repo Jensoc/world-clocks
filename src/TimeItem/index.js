@@ -1,13 +1,17 @@
 import React from "react";
 import './TimeItem.css'
 
-function TimeItem({text, day, onDelete}) {
+function TimeItem({
+  city,
+  time,
+  day,
+  onDelete,}) {
 
   return(
     <li className="clock-item">
       <span className={`status`}>{day}</span>
-      <p>{text}</p>
-      <p>22:22</p>
+      <p>{city}</p>
+      <p>{time}</p>
       <span
         className="delete-clock"
         onClick={onDelete}

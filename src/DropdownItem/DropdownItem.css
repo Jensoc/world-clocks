@@ -1,0 +1,14 @@
+.dropdown-li {
+    height: 35px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    width: 100%;
+    font-size: 20px;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+.dropdown-li:hover {
+    background-color: #c0c0c0;
+}
