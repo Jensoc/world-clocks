@@ -17,8 +17,6 @@ function useFetch(url) {
 
     if (data) {
         var time = data?.datetime.substring(11,16);
-        var formattedTime = time.replace(":", "");
-        formattedTime = parseInt(formattedTime);
         var zone = data?.timezone.split("/");
 
         if (zone.length === 3) {
@@ -27,19 +25,9 @@ function useFetch(url) {
         } else {
             city = zone[1].replace("_", " ");
         }
-        
-        var day;
-
-        if (formattedTime > 0 && formattedTime < 2000) {
-            day = true;
-
-        } else if (formattedTime > 2000) {
-            day = false;
-        }
-
     }
     
-    return ( {time, city, day, fetchLoading, error} );
+    return ( {time, city, fetchLoading, error} );
     
 }
 

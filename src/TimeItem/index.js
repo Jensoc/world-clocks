@@ -5,7 +5,7 @@ function TimeItem({
   city,
   time,
   day,
-  onDelete,}) {
+  onDelete}) {
 
   return(
     <li className="clock-item">
@@ -19,11 +19,5 @@ function TimeItem({
     </li>
   );
 }
-
-// const clockState = document.querySelectorAll('.day');
-
-// clockState.forEach((e) => {
-//   e.innerHTML = "🌞";
-// });
 
 export {TimeItem};

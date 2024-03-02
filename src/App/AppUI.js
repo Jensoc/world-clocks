@@ -50,8 +50,8 @@ function AppUI() {
                     
                     : searchedClocks.map((clock) => (
                         <TimeItem
-                          onDelete = {() => deleteClock(clock.text)}
-                          key = {clock.city}
+                          onDelete = {() => {deleteClock(clock.id); console.log("desde appui", clock.id)}}
+                          key = {clock.id}
                           city = {clock.city}
                           time = {clock.time}
                           day = {(clock.day) ? <FaSun color='#FFC73A'/> : <FaMoon color='#674689'/>}
