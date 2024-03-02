@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import './DropdownContent.css'
 import { useFetchClockList } from './useFetchClockList.js';
 import { DropdownItem } from '../DropdownItem/index.js';
+import { AppContext } from '../AppContext/index.js';
 
 
 
@@ -14,9 +15,10 @@ import { DropdownItem } from '../DropdownItem/index.js';
 
 function DropdownContent() {
 
-  const countryList = useFetchClockList();
   const [searchValue, setSearchValue] = useState("");
   const [searchedClocks, setSearchedClocks] = useState([]); 
+  
+  const countryList = useFetchClockList();
 
     useEffect(() => {
       setTimeout(() => {
@@ -29,6 +31,7 @@ function DropdownContent() {
           setSearchedClocks(filteredClocks);
         }
       }, 500);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [countryList]);
 
   return (

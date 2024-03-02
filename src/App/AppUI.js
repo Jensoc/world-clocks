@@ -20,7 +20,7 @@ function AppUI() {
     loading,
     deleteClock,
     searchedClocks,
-    dropdown,
+    dropdown
   } = React.useContext(AppContext);
 
     return (
@@ -41,6 +41,7 @@ function AppUI() {
           </section>
     
           <section className='clock-box'>
+            <div className='scroll'>
                 <TimeList>
                   {loading && <Loader/>}
                   {error && <li className='no-clocks'>Error!</li>}
@@ -49,16 +50,17 @@ function AppUI() {
                     ? ((!loading && !error) && <li className='no-clocks'>Add a new clock!</li>)
                     
                     : searchedClocks.map((clock) => (
-                        <TimeItem
-                          onDelete = {() => {deleteClock(clock.id); console.log("desde appui", clock.id)}}
-                          key = {clock.id}
-                          city = {clock.city}
-                          time = {clock.time}
-                          day = {(clock.day) ? <FaSun color='#FFC73A'/> : <FaMoon color='#674689'/>}
-                        />
+                      <TimeItem
+                        day = {(clock.day) ? <FaSun color='#FFC73A'/> : <FaMoon color='#674689'/>}
+                        onDelete = {() => {deleteClock(clock.id)}}
+                        key = {clock.id}
+                        city = {clock.city}
+                        time = {clock.time}
+                      />
                     ))
                   }
                 </TimeList>
+            </div>
           </section>
         </main>
       );

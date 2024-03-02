@@ -10,7 +10,7 @@ function TimeItem({
   return(
     <li className="clock-item">
       <span className={`status`}>{day}</span>
-      <p>{city}</p>
+      <p className="city">{city}</p>
       <p>{time}</p>
       <span
         className="delete-clock"

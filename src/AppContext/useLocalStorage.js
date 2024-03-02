@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
+// 
 
 function useLocalStorage(itemName, initialValue)  {
 
   const [item, setItem] = React.useState(initialValue);
+  const [timezoneClockList, setTimezoneClockList] = useState([]);
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState(false);
 
@@ -34,9 +36,16 @@ function useLocalStorage(itemName, initialValue)  {
       setItem(newItem);
     };
 
+    const saveToTimezoneStorage = (newItem) => {
+      localStorage.setItem("timezone_v1", JSON.stringify(newItem));
+      setTimezoneClockList(newItem);
+    };
+
     return {
       item,
       saveToStorage,
+      timezoneClockList,
+      saveToTimezoneStorage,
       loading,
       error
     };
