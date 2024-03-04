@@ -42,21 +42,15 @@ function AppProvider({children}) {
     }
   
     const deleteClock = (x) => {
-      const newClocks = [...clocks];
-      const index = newClocks.findIndex((clock) => clock.key === x);
-    
-      if (index !== -1) {
-        newClocks.splice(index, 1);
-        saveToStorage(newClocks);
-      }
+      const newClocks = [...timezoneClockList];
+      newClocks.splice(x, 1);
+      saveToStorage(newClocks);
     };
 
     const addTimezoneClock = (timezone) => {
-      setTimeout(() => {
-          const newTimezoneClocks = [...timezoneClockList];
-          newTimezoneClocks.push(timezone);
-          saveToTimezoneStorage(newTimezoneClocks);
-      }, 500);
+      const newTimezoneClocks = [...timezoneClockList];
+      newTimezoneClocks.push(timezone);
+      saveToTimezoneStorage(newTimezoneClocks);
     }
 
   return(

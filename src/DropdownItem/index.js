@@ -3,7 +3,7 @@ import { useFetch } from '../DropdownContent/useFetch';
 import './DropdownItem.css'
 import { AppContext } from '../AppContext';
 
-function DropdownItem({ item, id }) {
+function DropdownItem({ country }) {
 
   const {addTimezoneClock} = useContext(AppContext);
 
@@ -20,13 +20,13 @@ function DropdownItem({ item, id }) {
 
   }
 
-  let url = "http://worldtimeapi.org/api/timezone/" + item;
+  let url = "http://worldtimeapi.org/api/timezone/" + country;
   const {time, city, fetchLoading} = useFetch(url);
     
   return (
     <li
       className='dropdown-li'
-      onClick={()=>{newClock(); ; addTimezoneClock(item)}}
+      onClick={()=>{newClock() ; addTimezoneClock(country)}}
     >
       {fetchLoading && <p>Loading...</p>}
       {!fetchLoading && time} - {!fetchLoading && city}

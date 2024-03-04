@@ -5,7 +5,7 @@ import { TimeItem } from '../TimeItem';
 import { CreateButton } from '../CreateButton';
 import { ClockCounter } from '../ClockCounter';
 import { Loader } from '../Loader';
-
+import { DeleteAllData } from '../DeleteAllData';
 import { Modal } from '../Modal';
 import { AppContext } from '../AppContext';
 import { Dropdown } from '../Dropdown';
@@ -44,7 +44,7 @@ function AppUI() {
                   {loading && <Loader/>}
                   {error && <li className='no-clocks'>Error!</li>}
 
-                  {(searchedClocks.length === 0)
+                  {(!searchedClocks.length)
                     ? ((!loading && !error) && <li className='no-clocks'>Add a new clock!</li>)
                     
                     : searchedClocks.map((clock) => (
@@ -57,6 +57,9 @@ function AppUI() {
                 </TimeList>
             </div>
           </section>
+
+          <DeleteAllData/>
+          
         </main>
       );
 }

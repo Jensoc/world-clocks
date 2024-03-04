@@ -7,6 +7,10 @@ import { AppProvider } from '../AppContext';
 
 function App() {
 
+  setInterval(() => {
+    window.location.reload();
+  }, 60000);
+  
   // console.log(`
   //   const defaultClocks = [
   //     { text: "Paris", day: true },

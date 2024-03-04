@@ -43,7 +43,7 @@ function DropdownContent() {
           {searchedClocks.map((item)=>(
             <DropdownItem
               key ={item.key}
-              item = {item.country}
+              country = {item.country}
             />
           ))}
         </ul>

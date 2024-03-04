@@ -8,30 +8,28 @@ function TimeItem({
   id,
   onDelete}) {
 
-  const [reload, setReload] = useState(false)
-
-  
+  const decreasedId = (id) =>{
+    return id - 1
+  }
 
   const timezoneClockList = JSON.parse(localStorage.getItem("timezone_v1"));
-  const timezone = "Europe/London";
+
+  if (timezoneClockList) {
+    var timezone = timezoneClockList[decreasedId(id)];
+  }
+
 
   const [time, setTime] = useState(null);
   const [city, setCity] = useState(null);
 
   let url = "http://worldtimeapi.org/api/timezone/" + timezone;
   // console.log("timezone: ", timezone);
-  
   const { time: fetchedTime, city: fetchedCity } = useFetch(url);
 
-    useEffect(() => {
-      setTime(fetchedTime);
-      setCity(fetchedCity);
-    }, [fetchedCity, fetchedTime]);
-
-    setInterval(() => {
-      setReload(!reload)
-      console.log("reload!", time, reload)
-    }, 60000);
+  useEffect(() => {
+    setTime(fetchedTime);
+    setCity(fetchedCity);
+  }, [fetchedCity, fetchedTime]);
 
 
   let day;
@@ -42,9 +40,9 @@ function TimeItem({
 
   return(
     <li className="clock-item">
+      <p>{id}</p>
       <span className={`status`}>{day}</span>
       <p className="city">{city}</p>
-      <p>{id}</p>
       <p>{time}</p>
       <span
         className="delete-clock"

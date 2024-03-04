@@ -5,7 +5,7 @@ import React, { useState } from "react";
 function useLocalStorage(itemName, initialValue)  {
 
   const [item, setItem] = React.useState(initialValue);
-  const [timezoneClockList, setTimezoneClockList] = useState([]);
+  const [timezoneClockList, setTimezoneClockList] = useState(JSON.parse(localStorage.getItem("timezone_v1")) || []);
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState(false);
 
