@@ -3,17 +3,20 @@ import { useFetch } from '../DropdownContent/useFetch';
 import './DropdownItem.css'
 import { AppContext } from '../AppContext';
 
-function DropdownItem({saveTimezone, item }) {
+function DropdownItem({ item, id }) {
 
   const {addTimezoneClock} = useContext(AppContext);
 
-  const {addClock, setOpenModal, setDropdown} = useContext(AppContext);
+  const {
+    addClock,
+    setOpenModal,
+    setDropdown
+  } = useContext(AppContext);
 
   const newClock = () => {
     setOpenModal(false);
     setDropdown(false);
     addClock(time, city);
-    console.log(`Al enviar: "${time}", "${city}", "${item}"`);
 
   }
 
@@ -23,7 +26,7 @@ function DropdownItem({saveTimezone, item }) {
   return (
     <li
       className='dropdown-li'
-      onClick={()=>{newClock(); ; addTimezoneClock(item); console.log("dropdwon item:", item)}}
+      onClick={()=>{newClock(); ; addTimezoneClock(item)}}
     >
       {fetchLoading && <p>Loading...</p>}
       {!fetchLoading && time} - {!fetchLoading && city}

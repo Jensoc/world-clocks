@@ -5,8 +5,7 @@ import { TimeItem } from '../TimeItem';
 import { CreateButton } from '../CreateButton';
 import { ClockCounter } from '../ClockCounter';
 import { Loader } from '../Loader';
-import { FaMoon } from "react-icons/fa";
-import { FaSun } from "react-icons/fa";
+
 import { Modal } from '../Modal';
 import { AppContext } from '../AppContext';
 import { Dropdown } from '../Dropdown';
@@ -16,7 +15,6 @@ function AppUI() {
 
   const {
     error,
-    clocks,
     loading,
     deleteClock,
     searchedClocks,
@@ -46,18 +44,15 @@ function AppUI() {
                   {loading && <Loader/>}
                   {error && <li className='no-clocks'>Error!</li>}
 
-                  {(clocks.length === 0)
+                  {(searchedClocks.length === 0)
                     ? ((!loading && !error) && <li className='no-clocks'>Add a new clock!</li>)
                     
                     : searchedClocks.map((clock) => (
                       <TimeItem
-                        day = {(clock.day) ? <FaSun color='#FFC73A'/> : <FaMoon color='#674689'/>}
-                        onDelete = {() => {deleteClock(clock.id)}}
-                        key = {clock.id}
-                        city = {clock.city}
-                        time = {clock.time}
+                        onDelete = {() => {deleteClock(clock.key)}}
+                        id = {clock.key}
                       />
-                    ))
+                     ))
                   }
                 </TimeList>
             </div>

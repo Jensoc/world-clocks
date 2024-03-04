@@ -1,8 +1,7 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import './DropdownContent.css'
 import { useFetchClockList } from './useFetchClockList.js';
 import { DropdownItem } from '../DropdownItem/index.js';
-import { AppContext } from '../AppContext/index.js';
 
 
 
@@ -30,20 +29,20 @@ function DropdownContent() {
           });
           setSearchedClocks(filteredClocks);
         }
-      }, 500);
+      }, 100);
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [countryList]);
 
   return (
-    <div class="content">
-        <div class="content-input-box">
+    <div className="content">
+        <div className="content-input-box">
             <input type="text" id="dropdown-options" placeholder="Search" onChange={(e)=> setSearchValue(e.target.value)}></input>
         </div>
 
         <ul className="dropdown-list">
           {searchedClocks.map((item)=>(
             <DropdownItem
-              key={item.id} 
+              key ={item.key}
               item = {item.country}
             />
           ))}
